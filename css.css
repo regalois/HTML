@@ -1,0 +1,71 @@
+.list{
+    width:800px;
+    height:400px;
+    position: relative;/*让li item相对 ul list来定位？*/
+    list-style: none;/*为何要去掉--去掉ol的序号或者ul的·*/
+    padding-left: 0px;
+}
+.pic{
+    width:100%;
+    height:100%;
+}
+
+.item{
+    position: absolute;/*定位*/
+    width:100%;
+    height:100%;
+    opacity:0;/*不具有active类名透明度为0（显示为白色块），有active类名为1*/
+    transition:all .9s/*过渡，转变 0.9秒 实现淡入淡出效果*/
+}
+.item.active{/*???*/
+     z-index: 10;/*通过z-index的变化来实现轮播效果*/
+     opacity:1;/*具有active类名的图片opacity=1*/
+ }
+.wrap{
+    width: 800px;
+    height: 400px;
+    position:relative;/*让按钮button btn相对wrap定位*/
+}
+.btn{
+    position:absolute;/*子元素相对于父元素定位*/
+    width: 50px;
+    height: 100px;
+    top:150px;/*图片高400,btn高100，余300，平分*/
+    z-index: 100;/*按钮应该保证一直在最上层，所有index较高*/
+}
+#goPre{
+    left: 0px;
+}
+#goNext{
+    right: 0px;
+}
+
+
+.pointList{
+    padding-left: 0px;
+    list-style: none;
+    /*定位*/
+    position:absolute;
+    right:300px;
+    bottom: 20px;
+    z-index: 101;
+}
+.point{
+    width:10px;
+    height:10px;
+    background-color: rgba(0,0,0,0.4);/*最后一个opacity透明度*/
+    border-radius:100%;
+    float: left;
+    margin-right: 10px;
+    /*    margin-left: 18px;*/
+    border:solid 2px white;
+    /*    border-style: solid;
+        border-width: 2px;
+        border-color: white;*/
+    cursor:pointer;/*鼠标悬浮样式，小手*/
+
+}
+.point.active{
+    background-color: white;
+    background-color: rgba(255,255,255,0.7) ;
+}
