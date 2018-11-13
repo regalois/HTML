@@ -2,7 +2,7 @@ var items=document.getElementsByClassName('item');/*获取图片*/
 var points=document.getElementsByClassName('point');/*获取点*/
 var goPreBtn =document.getElementById('goPre');/*获取左按钮*/
 var goNextBtn =document.getElementById('goNext');/*获取右按钮*/
-
+var time = 0;/*定时器*/
 var index=0;/*index表示第几张图片在展示，即第index张图有active这个类名*/
 /*第几个点在展示*/
 
@@ -57,11 +57,32 @@ for(var i=0; i<points.length; i++){/*不是很明白*/
      /*   console.log(pointIndex);*/
         index = pointIndex;
         goIndex();
+        time = 0;/*点击小点后，time重置，图片停2s再跳下一张*/
     })
 }
 
 /*还差鼠标放到点上面时，点的颜色改变*/
 /*自动轮播需要定时器*/
+
+/*定时器*/
+/*setInterval(function () {
+    goNext();
+},2000)/!*设置间隔(时间),2000ms,每2秒执行一次*!/
+/!*需要解决手动轮播和自动轮播的协调问题，如下*!/*/
+
+setInterval(function () {/*每100ms执行如下代码*/
+    time++;
+    if(time == 20){/*20次，即2秒，跳到下一张*/
+        goNext();
+        time=0;
+    }
+    if(time>20){
+        time = 0;
+        goNext();
+    }
+},100)
+
+
 
 
 
